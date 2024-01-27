@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    background: #70a0af;
 }
 
 .main-container{
@@ -13,6 +14,11 @@ html, body {
     flex-direction: column;
 
     margin: 0 auto;
+
+    padding-right: 10px;
+
+    border-radius: 8px;
+    margin-top: 25px;
 }
 
 
@@ -29,7 +35,7 @@ img{
     width: 90px;
     height: 90px;
 
-    padding-left: 110px;
+    padding-left: 130px;
     padding-right: 110px;
     padding-top: 30px;
 }
@@ -43,6 +49,8 @@ img{
     font-weight: 700;
 
     text-align: center;
+
+    padding-left: 25px;
 
 }
 
@@ -63,8 +71,6 @@ img{
     font-style: normal;
     font-weight: 400;
 
-    vertical-align: top;
-
 }
 
 #publish-btn{
@@ -83,5 +89,47 @@ img{
     border: none;
 
     margin: 0 auto;
+
+}
+
+.bottom-container{
+    width: 317px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#endor-title{
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+    padding-left: 100px;
+}
+
+ul li{
+    background: #fff;
+
+    width: 315px;
+    height: 72px;
+
+    padding: 10px;
+
+    color: #1B1924;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+
+    margin-bottom: 10px;
+
+    border-radius: 8px;
 
 }
