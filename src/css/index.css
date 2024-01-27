@@ -5,6 +5,14 @@ html, body {
 
 .main-container{
     background-color: #1B1924;
+
+    width: 390px;
+    height: 844px;
+}
+
+img{
+    width: 90px;
+    height: 90px;
 }
 
 .top-container{
