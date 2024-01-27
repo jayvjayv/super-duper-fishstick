@@ -8,22 +8,80 @@ html, body {
 
     width: 390px;
     height: 844px;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 auto;
+}
+
+
+.top-container{
+
+    display: flex;
+
+    flex-direction: column;
+    margin: 0 auto;
+    width: 317px;
 }
 
 img{
     width: 90px;
     height: 90px;
+
+    padding-left: 110px;
+    padding-right: 110px;
+    padding-top: 30px;
 }
 
-.top-container{
+#top-title{
+    color: white;
 
-   
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+
+    text-align: center;
+
 }
 
 #endor-field{
 
+    height: 118px;
+    width: 317px;
+
+    border-radius: 8px;
+    background: #444059;
+    border: none;
+
+    margin-bottom: 15px;
+    padding: 10px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+
+    vertical-align: top;
+
 }
 
 #publish-btn{
+    height: 61px;
+    width: 335px;
+
+    color: #04131C;
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+
+    border-radius: 8px;
+    background: #28A9F1;
+
+    border: none;
+
+    margin: 0 auto;
 
 }
