@@ -56,8 +56,12 @@ function renderEndorsements(data) {
     let id = snapshotArray[i][0];
     let value = snapshotArray[i][1];
 
-    endorsementList.innerHTML += `<li>${value}</li>`
+    let listEl = document.createElement("li")
+    listEl.textContent =`${value}`;
+    endorsementList.append(listEl);
   }
+
+
 }
 
 //Publish -> pushes data to DB and updates on UI
