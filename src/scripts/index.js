@@ -1,23 +1,61 @@
 //Firebase Setup
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import {
+  getDatabase,
+  ref,
+  push,
+  onValue,
+  remove,
+} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
-  databaseURL: "https://playground-5069d-default-rtdb.firebaseio.com/",
+  databaseURL: "https://endorsements-1257f-default-rtdb.firebaseio.com/",
 };
 
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
-const endorsements = ref(database, "endorsements")
+const endorsements = ref(database, "endorsements");
 
 //DOM Elements
 const input = document.getElementById("endor-field");
 const publishBtn = document.getElementById("publish-btn");
 const endorsementList = document.getElementById("endor-list");
 
-input.addEventListener("click", function(){
-    push(endorsements, input.value);
-    endorsementList.innerHTML += `<li>${input.value}</li>`
-    input.value = ""
-    
-})
+let inputValue = input.value;
+
+publishBtn.addEventListener("click", function () {
+  pushToDB();
+  input.value = "";
+});
+
+function pushToDB() {
+  push(endorsements, input.value);
+}
+
+onValue(endorsements, (snapshot) => {
+
+  if (snapshot.exists()) {
+    addToEndorsements(snapshot.val());
+  } else {
+    endorsementList.innerHTML = `They are not any endorsements yet ... :)`;
+  }
+
+});
+
+function addToEndorsements(data){
+
+  endorsementList.innerHTML = ""
+
+  let snapshotArray = Object.entries(data)
+
+  for(let i = 0; i < snapshotArray.length; i++){
+    let id = snapshotArray[i][0];
+    let value = snapshotArray[i][1];
+
+    endorsementList.innerHTML += `<li> ${value} </li>`;
+  }
+
+ 
+}
+
+//Publish -> pushes data to DB and updates on UI
