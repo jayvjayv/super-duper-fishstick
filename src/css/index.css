@@ -19,6 +19,8 @@ html, body {
     border-radius: 8px;
     margin-top: 25px;
     margin-bottom: 25px;
+
+    border: white solid 6px;
 }
 
 
