@@ -32,30 +32,32 @@ function pushToDB() {
   push(endorsements, input.value);
 }
 
-onValue(endorsements, (snapshot) => {
+function removeFromDB(data) {
+  let id = data;
+  remove(endorsements);
+}
 
+onValue(endorsements, (snapshot) => {
   if (snapshot.exists()) {
-    addToEndorsements(snapshot.val());
+    renderEndorsements(snapshot.val());
   } else {
     endorsementList.innerHTML = `They are not any endorsements yet ... :)`;
   }
-
 });
 
-function addToEndorsements(data){
+function renderEndorsements(data) {
+  
+  endorsementList.innerHTML = "";
 
-  endorsementList.innerHTML = ""
+  let snapshotArray = Object.entries(data);
 
-  let snapshotArray = Object.entries(data)
+  for (let i = 0; i < snapshotArray.length; i++) {
 
-  for(let i = 0; i < snapshotArray.length; i++){
     let id = snapshotArray[i][0];
     let value = snapshotArray[i][1];
 
-    endorsementList.innerHTML += `<li> ${value} </li>`;
+    endorsementList.innerHTML += `<li>${value}</li>`
   }
-
- 
 }
 
 //Publish -> pushes data to DB and updates on UI
