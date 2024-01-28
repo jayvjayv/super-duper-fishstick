@@ -32,9 +32,8 @@ function pushToDB() {
   push(endorsements, input.value);
 }
 
-function removeFromDB(data) {
-  let id = data;
-  remove(endorsements);
+function removeFromDB(id) {
+  remove(endorsements, id);
 }
 
 onValue(endorsements, (snapshot) => {
@@ -58,8 +57,14 @@ function renderEndorsements(data) {
 
     let listEl = document.createElement("li")
     listEl.textContent =`${value}`;
+
+    //listEl.addEventListener("dblClick", removeFromDB(id));
+
     endorsementList.append(listEl);
+
   }
+
+
 
 
 }

@@ -134,3 +134,8 @@ ul li{
     border-radius: 8px;
 
 }
+
+ul li:hover{
+    background: #444059;
+    color: white;
+}
