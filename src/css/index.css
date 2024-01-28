@@ -74,6 +74,36 @@ img{
 
 }
 
+.sender-container{
+    width: 320px;
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 15px;
+
+}
+
+.sender{
+    width: 152.8px;
+    height: 40px;
+    
+    border-radius: 8px;
+    background: #444059;
+
+    border: none;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+
+    padding-left: 10px;
+
+    color: #8F8F8F;
+    margin-right: 5px;;
+
+    text-align: center;
+}
+
 #publish-btn{
     height: 61px;
     width: 335px;

@@ -25,12 +25,27 @@
           id="endor-field"
           placeholder="Write your endorsement here"
         />
+        <div class="sender-container">
+          <input
+            class="sender"
+            id="from-input"
+            type="text"
+            name="from-input"
+            placeholder="From"
+          />
+          <input
+            class="sender"
+            id="to-input"
+            type="text"
+            name="to-input"
+            placeholder="To"
+          />
+        </div>
         <button id="publish-btn">Publish</button>
       </div>
       <div class="bottom-container">
         <h2 id="endor-title">- Endorsements -</h2>
-        <ul id="endor-list">
-        </ul>
+        <ul id="endor-list"></ul>
       </div>
     </div>
     <script src="./src/scripts/index.js" type="module"></script>

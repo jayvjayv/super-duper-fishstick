@@ -43,7 +43,7 @@ onValue(endorsements, (snapshot) => {
   if (snapshot.exists()) {
     renderEndorsements(snapshot.val());
   } else {
-    endorsementList.innerHTML = `They are not any endorsements yet ... :)`;
+    endorsementList.innerHTML = `no endorsements bruh ... `;
   }
 });
 
@@ -57,8 +57,6 @@ function renderEndorsements(data) {
 
     let id = snapshotArray[i][0];
     let value = snapshotArray[i][1];
-
-    console.log(endorsements)
 
     let listEl = document.createElement("li")
     listEl.textContent =`${value}`;
