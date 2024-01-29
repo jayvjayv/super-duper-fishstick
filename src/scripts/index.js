@@ -18,6 +18,10 @@ const endorsements = ref(database, "endorsements");
 
 //DOM Elements
 const input = document.getElementById("endor-field");
+
+const from = document.getElementById("from-input");
+const to = document.getElementById("to-input");
+
 const publishBtn = document.getElementById("publish-btn");
 const endorsementList = document.getElementById("endor-list");
 
@@ -29,12 +33,20 @@ publishBtn.addEventListener("click", function () {
 });
 
 function pushToDB() {
-  push(endorsements, input.value);
+
+  push(
+    endorsements,
+    {
+      "endorsement":`${input.value}`,
+      "from":`${from.value}`,
+      "to": `${to.value}`,
+      "likes" : 0
+    }
+  );
 }
 
 function removeFromDB(id) {
-
-  let findElement = ref(database, `endorsements/${id}`)
+  let findElement = ref(database, `endorsements/${id}`);
 
   remove(findElement);
 }
@@ -43,33 +55,46 @@ onValue(endorsements, (snapshot) => {
   if (snapshot.exists()) {
     renderEndorsements(snapshot.val());
   } else {
-    endorsementList.innerHTML = `no endorsements bruh ... `;
+    endorsementList.innerHTML = `No Endorsements Bruh ... `;
   }
 });
 
 function renderEndorsements(data) {
-  
   endorsementList.innerHTML = "";
 
   let snapshotArray = Object.entries(data);
 
   for (let i = 0; i < snapshotArray.length; i++) {
-
     let id = snapshotArray[i][0];
-    let value = snapshotArray[i][1];
+    
+    let msgFrom = snapshotArray[i][1].from;
+    let msgTo = snapshotArray[i][1].to;
+    let endorsementMsg = snapshotArray[i][1].endorsement;
 
-    let listEl = document.createElement("li")
-    listEl.textContent =`${value}`;
+    let listEl = document.createElement("li");
+    let toEl = document.createElement("h3");
+    let fromEl = document.createElement("h3");
+    let numLikes = document.createElement("h3");
 
-    listEl.addEventListener("click", function(){
-      removeFromDB(id);
-      console.log(id);
+    toEl.textContent = `To ${msgTo}`;
+    fromEl.textContent = `From ${msgFrom}`;
+    numLikes.textContent = `❤️ ${snapshotArray[i][1].likes}`
+
+    listEl.append(toEl);
+    listEl.append(endorsementMsg);
+    listEl.append(fromEl);
+    listEl.append(numLikes)
+    
+    listEl.addEventListener("dblclick", function () {
+      removeFromDB(id);;
     });
 
+    numLikes.addEventListener("click", function() {
+      numLikes.textContent = `❤️ ${1}`
+    })
+
     endorsementList.append(listEl);
-
   }
-
 }
 
 //Publish -> pushes data to DB and updates on UI

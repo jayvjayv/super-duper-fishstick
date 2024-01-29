@@ -102,6 +102,8 @@ img{
     margin-right: 5px;;
 
     text-align: center;
+
+    color: white;
 }
 
 #publish-btn{
@@ -145,13 +147,21 @@ img{
     padding-left: 100px;
 }
 
+h3{
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+
+}
+
 ul li{
     background: #fff;
 
     width: 315px;
-    height: 72px;
+    height: 129px;
 
-    padding: 10px;
+    padding: 5px;
 
     list-style: none;
 
